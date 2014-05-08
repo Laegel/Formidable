@@ -1,0 +1,104 @@
+@font-face{
+        font-family: Acens;
+        src: url('font/Acens.ttf');
+    }   
+	
+	body {
+		padding: 0;
+		margin: 0;
+	}
+	
+	h1{
+		font-family: Acens;
+		background: #000000;
+		height: 50px;
+		color: #FFFFFF;
+		padding: 10px;
+	}
+
+    #testForm {
+		
+    }
+
+    .fcInputField {
+        height: 50px;
+        width: 200px;
+        margin: auto;
+    }
+    
+    .fcInput {
+        padding: 7px;
+        border-radius: 2px;
+        border: 1px solid grey;
+        font-family: Acens;
+        display: block;
+        margin: 0 auto 20px auto;
+        z-index: 10;
+        background: #FFFFFF;
+        position: absolute;
+    }
+    
+    .fcSubmit {
+        font-family: Acens;
+    }
+    
+    .fcLabel {
+        font-family: Acens;
+        z-index: 1;
+        position: absolute;
+        border: 1px solid grey;
+        border-radius: 2px 0 0 2px;
+        padding: 2px;
+    }
+
+    .fcTooltip {
+        font-family: Acens;
+        padding: 5px;
+        border-radius: 2px;
+        min-width: 200px;
+        height: 22px;
+    }
+
+    .fcNotificationBox {
+        font-family: Acens;
+    }
+
+    .fcErrorList {
+
+    }
+
+    .fcErrorItem {
+        list-style-type: square;
+    }
+
+    .fcInput:hover, .fcInput:focus {
+        box-shadow: 5px 0px 0px black inset;
+    }
+
+    .fcError {
+        box-shadow: 5px 0px 0px red inset !important;
+    }
+
+    .fcValid{
+        box-shadow: 5px 0px 0px green inset !important;
+    }
+
+    .JSDebugContainer {
+        font-family: 'Palatino linotype';
+        list-style-type: none;
+    }
+    .JSDebugContainer:nth-child(odd) {
+        background: whitesmoke;
+    }
+    .JSDebugContainer:nth-child(even) {
+        background: darksalmon;
+    }
+
+    .JSDebugList {
+
+    }
+
+
+    .JSDebugItem {
+        list-style-type: none;
+    }

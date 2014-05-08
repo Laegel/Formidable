@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>jQuery plugin - Formidable</title>
+		<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="js/sprintf.js"></script>
+		<script type="text/javascript" src="js/translator.js"></script>
+		<script type="text/javascript" src="js/formidable.js"></script>
+		<link type="text/css" href="css/stylesheet.css" rel="stylesheet"/>
+    </head>
+    <body>
+		<h1>jQuery plugin - Formidable</h1>
+		<form id="testForm">
+			<div class="fcInputField">
+				<label class="fcLabel">Login</label>
+				<input type="text">
+			</div>
+			<div class="fcInputField">
+				<label class="fcLabel">Mail address</label>
+				<input type="text">
+			</div>
+			<div class="fcInputField">
+				<label class="fcLabel">Country</label>
+				<input type="text">
+			</div>
+			<div class="fcInputField">
+				<label class="fcLabel">Password</label>
+				<input type="text">
+			</div>
+			<div class="fcInputField">
+				<label class="fcLabel">Repeat password</label>
+				<input type="text">
+			</div>
+			<div class="fcInputField">
+				<label class="fcLabel">Can stay empty</label>
+				<input type="text">
+			</div>
+		</form>
+		<script type="text/javascript">
+			$(function(){
+				initEnglish();
+				//Not part of Formidable
+				function showKikooLabels(input){
+					var label = input.parents('.fcInputField').children('.fcLabel');
+					label.css({
+						'display':'block',
+						'left':input.offset().left,
+						'top':input.offset().top + 3
+					});
+					label.animate({
+						'left': label.offset().left - label.outerWidth()
+					}, 500);
+				}
+				
+				function hideKikooLabels(input){
+					var label = input.parents('.fcInputField').children('.fcLabel');
+					label.clearQueue();
+					label.stop();
+					label.animate({
+						'left': input.offset().left
+					}, 500);
+					setTimeout(function(){
+						label.hide();
+					}, 500);
+				}
+				
+				$('input', '#testForm').mouseenter(function(){
+					showKikooLabels($(this));
+				}).mouseout(function(){
+					hideKikooLabels($(this));
+					
+				});
+				//Set the actions to perform to the inputs
+				var formElements = {
+					'formType':'login',
+					0:{
+						'actions':{
+							0:'lengthCheck', 
+							1:'existingPseudoCheck'
+						},
+						'minChar':3,
+						'maxChar':10
+					},
+					1:{
+						'actions':{
+							0:'mailCheck'
+						}
+					},
+					2:{
+						'actions':{
+							0:'emptyCheck'
+						}
+					},
+					3:{
+						'actions':{
+							0:'passwordCheck',
+							1:'lengthCheck'
+						},
+						'minChar':3,
+						'maxChar':10
+					},
+					4:{
+						'actions':{
+							0:'passwordRepeatCheck'
+						}
+					}
+				}
+				$('#testForm').formidable(formElements);
+			});
+		</script>
+	</body>
+</html>
